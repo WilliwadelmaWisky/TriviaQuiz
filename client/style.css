@@ -1,0 +1,137 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: Roboto;
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	gap: 2em;
+}
+p {
+	margin: 0;
+	padding: 0;
+}
+
+
+nav {
+	background-color: rgb(30, 30, 45);
+	color: rgb(250, 250, 250);
+	padding: 2em 10%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+nav > p {
+	font-family: Impact, sans-serif;
+	font-size: 3em;
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: underline dotted;
+}
+nav > div {
+	display: flex;
+	flex-direction: row;
+	gap: 0.2em;
+}
+nav > div > a {
+	color: rgb(250, 250, 250);
+	text-decoration: none;
+	padding: 0.5em 1em;
+}
+nav > div > a:hover {
+	background-color: rgb(250, 250, 250);
+	border-radius: 5px;
+	color: black;
+}
+
+
+section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+section > p {
+	padding: 2em 3em;
+	margin: 1em 0 2em 0;
+	min-width: 20em;
+	max-width: 25em;
+	text-align: center;
+	font-family: "Times New Roman", sans-serif;
+	text-decoration: underline dotted;
+	color: white;
+	background-color: blue;
+	border-radius: 10px;
+}
+section > table {
+	font-family: "Times New Roman", sans-serif;
+}
+
+
+table {
+	padding: 1em;
+	border: 1px black solid;
+	border-spacing: 0;
+	border-radius: 10px;
+	min-width: 30em;
+	max-width: 40em;
+}
+th {
+	text-align: left;
+	vertical-align: top;
+	padding: 0.5em 1em;
+}
+td {
+	text-align: left;
+	vertical-align: top;
+	padding: 0.5em 1em;
+}
+
+
+form {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.2em;
+}
+form > fieldset {
+	min-width: 20em;
+	max-width: 25em;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}
+form > fieldset > legend {
+	font-family: monospace;
+}
+form > fieldset > label {
+	font-family: monospace;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 2em;
+}
+form > fieldset > label > textarea {
+	width: 20em;
+	resize: none;
+}
+form > button {
+	padding: 0.4em 1em;
+}
+
+
+.hidden {
+	display: none;
+}
+.disclaimer {
+	font-family: Impact, sans-serif;
+	font-size: 1em;
+	padding: 0.5em 0;
+	color: red;
+}
+.correct {
+	color: green;
+}
+.incorrect {
+	color: red;
+}

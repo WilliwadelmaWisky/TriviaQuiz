@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>TriviaQuiz</title>
+		<link rel="stylesheet" href="style.css" type="text/css">
+	</head>
+	<body>
+		<nav>
+			<p>TriviaQuiz</p>
+			<div>
+				<a href="https://github.com/">Source Code</a>
+				<a href="https://opentdb.com/">OpenTriviaDB</a>
+			</div>
+		</nav>
+
+		<section id="request-section">
+			<h1>Start a Quiz</h1>
+			<form id="request">
+				<fieldset>
+				<legend>Choose the options</legend>
+					<label>Category
+						<select name="category">
+							<option value="0">Any Category</option>
+							<option value="9">General Knowledge</option>
+							<option value="27">Animals</option>
+							<option value="25">Art</option>
+							<option value="26">Celebrities</option>
+							<option value="22">Geography</option>
+							<option value="23">History</option>
+							<option value="20">Mythology</option>
+							<option value="24">Politics</option>
+							<option value="21">Sports</option>
+							<option value="28">Vehicles</option>
+							<option value="31">Entertainment: Anime & Manga</option>
+							<option value="16">Entertainment: Board Games</option>
+							<option value="10">Entertainment: Books</option>
+							<option value="32">Entertainment: Cartoon & Animations</option>
+							<option value="29">Entertainment: Comics</option>
+							<option value="11">Entertainment: Films</option>
+							<option value="12">Entertainment: Music</option>
+							<option value="13">Entertainment: Musicals & Theatres</option>
+							<option value="14">Entertainment: Television</option>
+							<option value="15">Entertainment: Video Games</option>
+							<option value="18">Science: Computers</option>
+							<option value="30">Science: Gadgets</option>
+							<option value="19">Science: Mathematics</option>
+							<option value="17">Science: Nature</option>
+						</select>
+					</label>
+					<label>Difficulty
+						<select name="difficulty">
+							<option value="0">Any Difficulty</option>
+							<option value="easy">Easy</option>
+							<option value="medium">Medium</option>
+							<option value="hard">Hard</option>
+						</select>
+					</label>
+					<label>Length
+						<input type="number" name="amount" min="1" max="50" value="10"/>
+					</label>
+				</fieldset>
+				<button type="submit">Start</button>
+			</form>
+		</section>
+
+		<section id="score-section">
+			<h1>Results</h1>
+			<p>Thank you for taking your time to finish the quiz. You can now send us feedback or start a new quiz below.</p>
+			<h3 id="score">Score (15/30)</h3>
+			<table>
+				<thead>
+					<tr>
+						<th></th>
+						<th>Question</th>
+						<th>Correct</th>
+						<th></th>
+						<th>Answered</th>
+					</tr>
+				</thead>
+				<tbody></tbody>
+			</table>
+		</section>
+
+		<section id="answer-section">
+			<h1 id="title">Computer Science (1 / 10)</h1>
+			<p id="question">What is a correct answer to this question?</p>
+			<form id="answer">
+				<fieldset>
+					<legend>Choose your answer</legend>
+					<label><span>1. Answer</span><input type="radio" name="answer" required="required"/></label>
+					<label><span>2. Answer</span><input type="radio" name="answer" required="required"/></label>
+					<label><span>3. Answer</span><input type="radio" name="answer" required="required"/></label>
+					<label><span>4. Answer</span><input type="radio" name="answer" required="required"/></label>
+				</fieldset>
+				<button type="submit">Answer</button>
+			</form>
+		</section>
+		
+		<section id="feedback-section">
+			<h1>Send us feedback</h1>
+			<form id="feedback">
+				<fieldset>
+					<legend>Did you like the quiz?</legend>
+					<label>Username<input type="text" name="user" autocomplete="off" placeholder="Username..."/></label>
+					<label>Feedback<textarea name="feedback" rows="5" autocomplete="off" maxlength="50" placeholder="Feedback... &#10;(max-length 50)"></textarea></label>
+					<p class="disclaimer">DISCLAIMER: Feedback is not processed or stored in any way!</p>
+				</fieldset>
+				<button type="submit">Send</button>
+			</form>
+		</section>
+	
+		<script src="index.js"></script>
+	</body>
+</html>
