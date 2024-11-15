@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: Roboto;
+	font-family: "Times New Roman", sans-serif;
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
@@ -28,6 +28,7 @@ nav > p {
 	font-weight: bold;
 	font-style: italic;
 	text-decoration: underline dotted;
+	cursor: pointer;
 }
 nav > div {
 	display: flex;
@@ -58,7 +59,6 @@ section > p {
 	max-width: 25em;
 	text-align: center;
 	font-family: "Times New Roman", sans-serif;
-	text-decoration: underline dotted;
 	color: white;
 	background-color: blue;
 	border-radius: 10px;
@@ -122,12 +122,6 @@ form > button {
 
 .hidden {
 	display: none;
-}
-.disclaimer {
-	font-family: Impact, sans-serif;
-	font-size: 1em;
-	padding: 0.5em 0;
-	color: red;
 }
 .correct {
 	color: green;

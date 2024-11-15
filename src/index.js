@@ -3,16 +3,17 @@
 const scoreSection = document.getElementById("score-section");
 const answerSection = document.getElementById("answer-section");
 const requestSection = document.getElementById("request-section");
-const feedbackSection = document.getElementById("feedback-section");
 
 scoreSection.classList.add("hidden");
 answerSection.classList.add("hidden");
-feedbackSection.classList.add("hidden");
 
 let results;
 let currentIndex;
 let selectedAnswers;
 
+/**
+ * On window load
+ */
 window.addEventListener("load",  (e) => {
     const requestForm = document.forms["request"];
     requestForm.addEventListener("submit", onRequestSubmit);
@@ -21,10 +22,17 @@ window.addEventListener("load",  (e) => {
     answerForm.addEventListener("submit", onAnswerSubmit);
 });
 
+/**
+ * On logo click
+ */
+document.getElementById("logo").addEventListener("click", (e) => {
+    window.location.reload();
+});
+
 
 /**
- * 
- * @param {Event} e 
+ * Submit event-listener, on quiz request form
+ * @param {Event} e - Submit event
  */
 const onRequestSubmit = async (e) => {
     e.preventDefault();
@@ -32,11 +40,10 @@ const onRequestSubmit = async (e) => {
     const url = constructRequestURL();
     const data = await requestQuiz(url);
     if (data.response_code !== 0) {
-        console.log("ERROR: request failed");
+        console.error("ERROR: request failed");
         return;
     }
 
-    console.log(data.results);
     answerSection.classList.remove("hidden");
     scoreSection.classList.add("hidden");
     requestSection.classList.add("hidden");
@@ -48,8 +55,9 @@ const onRequestSubmit = async (e) => {
 };
 
 /**
- * 
- * @return {String}
+ * Construct an url for fetching a quiz from OpenTriviaDB.
+ * Uses data from quiz request form.
+ * @return {String} Constructed url
  */
 const constructRequestURL = () => {
     const requestForm = document.forms["request"];
@@ -57,24 +65,19 @@ const constructRequestURL = () => {
     let url = "https://opentdb.com/api.php";
     const amount = requestForm.elements["amount"].value;
     url += `?amount=${amount}&type=multiple`;
-
     const category = requestForm.elements["category"].value;
-    if (category !== "0") {
-        url += `&category=${category}`;
-    }
-
+    if (category !== "0") { url += `&category=${category}`; }
     const difficulty = requestForm.elements["difficulty"].value;
-    if (difficulty !== "0") {
-        url += `&difficulty=${difficulty}`;
-    }
+    if (difficulty !== "0") { url += `&difficulty=${difficulty}`; }
 
     return url;
 };
 
 /**
- * 
- * @param {String} url 
- * @return {Object}
+ * Requests a quiz from OpenTriviaDB.
+ * If request fails response object is `{ response_code: -1 }`.
+ * @param {String} url - Quiz request url
+ * @return {Object} - Quiz response object
  */
 const requestQuiz = async (url) => {
     const response = await fetch(url);
@@ -88,8 +91,8 @@ const requestQuiz = async (url) => {
 
 
 /**
- * 
- * @param {Event} e 
+ * Submit event-listener, on answer question form.
+ * @param {Event} e - Submit event
  */
 const onAnswerSubmit = (e) => {
     e.preventDefault();
@@ -98,19 +101,20 @@ const onAnswerSubmit = (e) => {
     const answers = Array.from(answerForm.elements["answer"]);
     const selected = answers.filter(input => input.checked)[0];
     selectedAnswers.push(selected.value);
+    answerForm.reset();
 
     if (currentIndex == results.length - 1) {
         showResults();
         return;
     }
 
-    answerForm.reset();
     showQuestion(currentIndex + 1);
 };
 
 /**
- * 
- * @param {Number} index 
+ * Shows a question based of the given index.
+ * Shuffles the answers.
+ * @param {Number} index - Index of the question
  */
 const showQuestion = (index) => {
     currentIndex = index;
@@ -131,7 +135,7 @@ const showQuestion = (index) => {
 /**
  * Durstenfeld shuffle
  * see: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
- * @param {Array<String>} array 
+ * @param {Array<String>} array - Array to shuffle
  */
 const shuffle = (array) => {
     for (var i = array.length - 1; i >= 0; i--) {
@@ -144,7 +148,8 @@ const shuffle = (array) => {
 
 
 /**
- * 
+ * Shows the results of the quiz.
+ * Shows a score and a table of the correct/answered questions.
  */
 const showResults = () => {
     const score = calculateScore();
@@ -163,8 +168,8 @@ const showResults = () => {
 };
 
 /**
- * 
- * @return {Number}
+ * Calculates a score.
+ * @return {Number} Score of the quiz
  */
 const calculateScore = () => {
     let score = 0;
@@ -178,9 +183,9 @@ const calculateScore = () => {
 };
 
 /**
- * 
- * @param {Number} index 
- * @return {HTMLTableRowElement}
+ * Creates a table row to show correct/answered questions.
+ * @param {Number} index - Index of the question
+ * @return {HTMLTableRowElement} Created table row element
  */
 const createResultTableRow = (index) => {
     const tr = document.createElement("tr");

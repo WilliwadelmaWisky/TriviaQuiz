@@ -4,10 +4,11 @@
 		<meta charset="UTF-8">
 		<title>TriviaQuiz</title>
 		<link rel="stylesheet" href="style.css" type="text/css">
+		<script src="index.js" defer="defer"></script>
 	</head>
 	<body>
 		<nav>
-			<p>TriviaQuiz</p>
+			<p id="logo">TriviaQuiz</p>
 			<div>
 				<a href="https://github.com/">Source Code</a>
 				<a href="https://opentdb.com/">OpenTriviaDB</a>
@@ -66,7 +67,7 @@
 
 		<section id="score-section">
 			<h1>Results</h1>
-			<p>Thank you for taking your time to finish the quiz. You can now send us feedback or start a new quiz below.</p>
+			<p>Thank you for taking your time to finish the quiz.</p>
 			<h3 id="score">Score (15/30)</h3>
 			<table>
 				<thead>
@@ -96,20 +97,5 @@
 				<button type="submit">Answer</button>
 			</form>
 		</section>
-		
-		<section id="feedback-section">
-			<h1>Send us feedback</h1>
-			<form id="feedback">
-				<fieldset>
-					<legend>Did you like the quiz?</legend>
-					<label>Username<input type="text" name="user" autocomplete="off" placeholder="Username..."/></label>
-					<label>Feedback<textarea name="feedback" rows="5" autocomplete="off" maxlength="50" placeholder="Feedback... &#10;(max-length 50)"></textarea></label>
-					<p class="disclaimer">DISCLAIMER: Feedback is not processed or stored in any way!</p>
-				</fieldset>
-				<button type="submit">Send</button>
-			</form>
-		</section>
-	
-		<script src="index.js"></script>
 	</body>
 </html>
