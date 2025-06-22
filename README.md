@@ -9,7 +9,7 @@
     The application allows the user to define which the quetions belong to. The length and difficulty can also be adjusted according to preferences. During the quiz the questions are shown in a very clear fashion and the possible answers below it. There is only a single right answer at all times and after locking the answer it is impossible to return back. After the quiz is finished the scoreboard is shown which includes the lists of all the questions with the correct answers.
 </p>
 
-> [!INFO]
+> [!NOTE]
 > The following screenshots illustrate the quiz customization options, the question answer options and the final scoreboard. Also the scoreboard gives an idea what sort of questions are to be expected to appear.
 
 ### Start menu
